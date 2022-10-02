@@ -1,30 +1,31 @@
-<!-- cek apakah sudah login -->
 <?php
-    session_start();
-    include '../koneksi.php';
-    if ($_SESSION['status'] != "login") {
-        header("location:../index.php?pesan=belum_login");
-    }
-    $email = $_SESSION['email'];
-    $query = mysqli_query($koneksi, "SELECT * FROM user WHERE email='$email'");
-    $row = mysqli_fetch_assoc($query);
+    include 'app-atas.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h2>Halaman Admin</h2>
-    <br />
-    <h4>Selamat datang, <?= $row['nama']; ?>! anda telah login.</h4>
-    <br />
-    <br />
-    <a href="../logout.php">LOGOUT</a>
-</body>
-</html>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Static Navigation</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Static Navigation</li>
+                </ol>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p class="mb-0">
+                            Selamat datang <?= $rw['email']; ?> di Sistem Informasi Manajemen Siswa SMK TI Bali Global Denpasar. <br/>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-primary" role="alert">
+                            A simple primary alert—check it out!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+<?php
+    include 'app-bawah.php';
+?>
+                
