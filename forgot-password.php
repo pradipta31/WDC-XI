@@ -22,46 +22,37 @@
         <?php
             if (isset($_GET['pesan'])) {
                 if ($_GET['pesan'] == "gagal") {
-                    echo "Login gagal! username dan password salah!";
-                } else if ($_GET['pesan'] == "logout") {
-                    echo "Anda telah berhasil logout";
-                } else if ($_GET['pesan'] == "belum_login") {
-                    echo "Anda harus login untuk mengakses halaman admin";
-                } else if($_GET['pesan'] == "daftar_berhasil"){
-                    echo "Pendaftaran akun baru berhasil, silahkan login!";
-                } else if($_GET['pesan'] == "berhasil_update"){
-                    echo "Password anda berhasil diganti!";
+                    echo "Email yang anda masukkan tidak ada!";
+                } else if($_GET['pesan'] == "password"){
+                    echo "Password tidak sama silahkan ulangi lagi!";
                 }
             }
         ?>
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Forgot your password?</p>
 
-            <form action="proses-login.php" method="post" enctype="multipart/form-data">
+            <form action="proses-forgot-password.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group has-feedback">
                     <input type="email" class="form-control" placeholder="Email" name="email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="text" class="form-control" placeholder="Password" name="password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="Retype Password" name="re_password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
-                        </div>
+                    <div class="col-xs-6">
+                        <a href="index.php" class="btn btn-default btn-block btn-flat">Kembali</a>
                     </div>
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
                     </div>
                 </div>
             </form>
-
-            <a href="forgot-password.php">I forgot my password</a><br>
-            <a href="register.php" class="text-center">Register a new membership</a>
 
         </div>
     </div>
